@@ -3,11 +3,11 @@ node {
          checkout scm
      }
      stage('Build image') {
-         app = docker.build("admin/flask-example")
+         app = docker.build("dlgndud/flask-example")
          
      }
      stage('Push image') {
-         docker.withRegistry('https://127.0.0.1/', 'harbor-reg') {
+         docker.withRegistry('https://hub.docker.com', 'dlgndud@gmail.com') {
              app.push("${env.BUILD_NUMBER}")
              app.push("latest")
          }
